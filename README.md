@@ -13,7 +13,7 @@ This module was inspired by the [expand-home-dir](https://www.npmjs.com/package/
 
 To install as an application dependency:
 ```
-$ npm install --save util.toolbox
+$ npm install --save util.home
 ```
 
 To build the app and run all tests:
