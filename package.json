@@ -7,10 +7,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jmquigley/module.template"
+    "url": "https://github.com/jmquigley/util.home"
   },
   "bugs": {
-    "url": "https://github.com/jmquigley/module.template/issues"
+    "url": "https://github.com/jmquigley/util.home/issues"
   },
   "engines": {
     "node": ">=7.5"
