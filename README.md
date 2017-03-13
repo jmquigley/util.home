@@ -4,7 +4,10 @@
 
 Path strings that use the `~`, `~/` or `~\` at the front of the string will be expanded to use the home directory of the user.  The home directory is dependent on the architecture.  For Linux/OSX the environment variable `HOME` is used.  On the Windows operating system it uses `USERPROFILE`.
 
-This was inspired by the [expand-home-dir](https://www.npmjs.com/package/expand-home-dir) package.  This module uses typescript and has a type definition file supplied with the package.  It will also accept a Buffer or string..
+This module uses typescript and has a type definition file supplied with the package.  It will also accept a `Buffer` or `string`.
+
+This module was inspired by the [expand-home-dir](https://www.npmjs.com/package/expand-home-dir) package.
+
 
 ## Installation
 
