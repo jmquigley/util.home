@@ -5,15 +5,19 @@ let homedir = 'HOME';
 if (toolbox.isWin) {
 	homedir = 'USERPROFILE';
 }
-let home = process.env[homedir];
+export let home = process.env[homedir];
 
 export function expandHomeDirectory (src: String | Buffer) {
+	if (src == null) {
+		return '';
+	}
+
 	if (src instanceof Buffer) {
 		src = src.toString();
 	}
 
-	if (!src || src === '~') {
-		return src;
+	if (src === '~') {
+		return home;
 	}
 
 	let chevron = src.slice(0, 2);
@@ -21,5 +25,5 @@ export function expandHomeDirectory (src: String | Buffer) {
 		return path.join(home, src.slice(2));
 	}
 
-	return path;
+	return src;
 }

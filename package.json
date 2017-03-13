@@ -19,7 +19,7 @@
     "@types/lodash": "^4.14.54",
     "@types/node": "^7.0.5",
     "lodash": "^4.17.4",
-    "util.rstrip": "0.0.11",
+    "util.pkgwrap": "0.0.11",
     "util.toolbox": "0.0.8"
   },
   "devDependencies": {
@@ -30,16 +30,14 @@
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
     "tslint": "^4.5.1",
-    "typescript": "^2.2.1",
-    "util.pkgwrap": "0.0.11"
+    "typescript": "^2.2.1"
   },
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
     "all": "npm run lint && npm run build && npm test && npm run report",
-    "build": "./node_modules/.bin/pkgwrap --build && npm run docs",
+    "build": "./node_modules/.bin/pkgwrap --build",
     "coverage": "./node_modules/.bin/pkgwrap --coverage",
-    "docs": "./node_modules/.bin/gulp docs",
     "lint": "./node_modules/.bin/pkgwrap --lint",
     "postinstall": "./node_modules/.bin/pkgwrap --postinstall",
     "report": "./node_modules/.bin/pkgwrap --reporting",
