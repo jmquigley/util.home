@@ -1,8 +1,8 @@
 'use strict';
 
-import * as path from 'path';
 import * as assert from 'assert';
 import * as _ from 'lodash';
+import * as path from 'path';
 
 let saveEnv = _.cloneDeep(process.env);
 
@@ -97,7 +97,7 @@ describe('Executing test suite', () => {
 		let dir = expand('~/test/expand');
 
 		assert(dir);
-		assert(dir == `C:${path.sep}Users${path.sep}Home${path.sep}test${path.sep}expand`);
+		assert(dir === `C:${path.sep}Users${path.sep}Home${path.sep}test${path.sep}expand`);
 	});
 
 	it('Testing the expansion of home directory on Windows with Buffer', () => {
@@ -113,7 +113,7 @@ describe('Executing test suite', () => {
 		let dir = expand(new Buffer('~/test/expand'));
 
 		assert(dir);
-		assert(dir == `C:${path.sep}Users${path.sep}Home${path.sep}test${path.sep}expand`);
+		assert(dir === `C:${path.sep}Users${path.sep}Home${path.sep}test${path.sep}expand`);
 	});
 
 	it('Testing expansion of directory without tilde on Linux/Mac', () => {
@@ -193,7 +193,7 @@ describe('Executing test suite', () => {
 		let dir = expand('~/test/expand');
 
 		assert(dir);
-		assert(dir == `${path.sep}home${path.sep}user${path.sep}test${path.sep}expand`);
+		assert(dir === `${path.sep}home${path.sep}user${path.sep}test${path.sep}expand`);
 	});
 
 	it('Testing the expansion of home directory on Linux/Mac with Buffer', () => {
@@ -209,6 +209,6 @@ describe('Executing test suite', () => {
 		let dir = expand(new Buffer('~/test/expand'));
 
 		assert(dir);
-		assert(dir == `${path.sep}home${path.sep}user${path.sep}test${path.sep}expand`);
+		assert(dir === `${path.sep}home${path.sep}user${path.sep}test${path.sep}expand`);
 	});
 });
