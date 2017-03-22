@@ -16,7 +16,7 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "util.pkgwrap": "0.0.19",
+    "util.pkgwrap": "0.0.20",
     "util.toolbox": "0.0.13"
   },
   "devDependencies": {
