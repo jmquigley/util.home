@@ -1,4 +1,4 @@
-# util.home [![Build Status](https://travis-ci.org/jmquigley/util.home.svg?branch=master)](https://travis-ci.org/jmquigley/util.home) [![tslint code style](https://img.shields.io/badge/code_style-TSlint-5ed9c7.svg)](https://palantir.github.io/tslint/) [![NPM](https://img.shields.io/npm/v/util.home.svg)](https://www.npmjs.com/package/util.home) [![Coverage Status](https://coveralls.io/repos/github/jmquigley/util.home/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.home?branch=master)
+# util.home [![Build Status](https://travis-ci.org/jmquigley/util.home.svg?branch=master)](https://travis-ci.org/jmquigley/util.home) [![tslint code style](https://img.shields.io/badge/code_style-TSlint-5ed9c7.svg)](https://palantir.github.io/tslint/) [![Test Runner](https://img.shields.io/badge/testing-ava-blue.svg)](https://github.com/avajs/ava) [![NPM](https://img.shields.io/npm/v/util.home.svg)](https://www.npmjs.com/package/util.home) [![Coverage Status](https://coveralls.io/repos/github/jmquigley/util.home/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.home?branch=master)
 
 > Expands the ~ home directory in a path Edit
 
