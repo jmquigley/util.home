@@ -1119,10 +1119,6 @@ expand-brackets@^0.1.4:
   dependencies:
     is-posix-bracket "^0.1.0"
 
-expand-home-dir@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/expand-home-dir/-/expand-home-dir-0.0.3.tgz#72de8a0486cc28a3bbd704635398825b5b62827d"
-
 "expand-home-dir@github:jmquigley/expand-home-dir":
   version "0.0.3"
   resolved "https://codeload.github.com/jmquigley/expand-home-dir/tar.gz/05ec8dcf0aaff75086ec79fdba28e1f85c2bf0c0"
@@ -1489,8 +1485,8 @@ home-or-tmp@^2.0.0:
     os-tmpdir "^1.0.1"
 
 hosted-git-info@^2.1.4:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.3.1.tgz#ac439421605f0beb0ea1349de7d8bb28e50be1dd"
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.4.1.tgz#4b0445e41c004a8bd1337773a4ff790ca40318c8"
 
 http-signature@~1.1.0:
   version "1.1.1"
@@ -3126,15 +3122,6 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
-util.pkgwrap@0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/util.pkgwrap/-/util.pkgwrap-0.0.17.tgz#ae0de1e83c7ad57f1a9966b27e4acd074bc70f9c"
-  dependencies:
-    expand-home-dir "0.0.3"
-    fs-extra "^2.0.0"
-    lodash "^4.17.4"
-    yargs "^6.5.0"
-
 util.pkgwrap@0.0.18:
   version "0.0.18"
   resolved "https://registry.yarnpkg.com/util.pkgwrap/-/util.pkgwrap-0.0.18.tgz#d36e85311550ac37c945eef4f92eba9c77b78e35"
@@ -3153,18 +3140,18 @@ util.pkgwrap@0.0.20:
     lodash "^4.17.4"
     yargs "^6.5.0"
 
-util.rstrip@0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.13.tgz#ced1da3d7c24d6e8c22a4782a99d9bd0769b6487"
-  dependencies:
-    util.pkgwrap "0.0.17"
-
-util.toolbox@0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.13.tgz#912eccbb3a85408538f6d26c8144d3a81d7b6b36"
+util.rstrip@0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/util.rstrip/-/util.rstrip-0.0.14.tgz#0a4ce3d6b03b76f748dd3bc0ca2943c8b160469c"
   dependencies:
     util.pkgwrap "0.0.18"
-    util.rstrip "0.0.13"
+
+util.toolbox@0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.14.tgz#3f94a945620c041dca0cf19a45f2d7d628b1fb48"
+  dependencies:
+    util.pkgwrap "0.0.20"
+    util.rstrip "0.0.14"
 
 uuid@^2.0.1:
   version "2.0.3"

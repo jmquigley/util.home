@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "util.pkgwrap": "0.0.20",
-    "util.toolbox": "0.0.13"
+    "util.toolbox": "0.0.14"
   },
   "devDependencies": {
     "@types/fs-extra": "2.0.0",
