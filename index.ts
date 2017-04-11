@@ -7,7 +7,7 @@ if (toolbox.isWin) {
 }
 export let home = process.env[homedir].trim().replace(/[\\\/]+/g, '/');
 
-export function expandHomeDirectory (src: String | Buffer) {
+export function expandHomeDirectory(src: string | Buffer) {
 	if (src == null) {
 		return '';
 	}
@@ -20,7 +20,7 @@ export function expandHomeDirectory (src: String | Buffer) {
 		return home;
 	}
 
-	let chevron = src.slice(0, 2);
+	const chevron = src.slice(0, 2);
 	if (chevron === '~/' || chevron === '~\\') {
 		return path.join(home, src.slice(2)).trim().replace(/[\\\/]+/g, '/');
 	}
