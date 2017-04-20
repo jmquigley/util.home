@@ -16,13 +16,13 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "util.pkgwrap": "0.0.20",
-    "util.toolbox": "0.0.18"
+    "util.pkgwrap": "0.0.26",
+    "util.toolbox": "0.0.25"
   },
   "devDependencies": {
-    "@types/fs-extra": "2.0.0",
+    "@types/fs-extra": "2.1.0",
     "@types/lodash": "^4.14.62",
-    "@types/node": "^7.0.12",
+    "@types/node": "^7.0.13",
     "ava": "^0.19.1",
     "coveralls": "^2.13.0",
     "fs-extra": "^2.1.2",
