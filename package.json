@@ -16,20 +16,20 @@
     "node": ">=7.5"
   },
   "dependencies": {
-    "util.pkgwrap": "0.0.59",
-    "util.toolbox": "0.0.36"
+    "util.pkgwrap": "0.0.68",
+    "util.toolbox": "0.0.45"
   },
   "devDependencies": {
-    "@types/fs-extra": "3.0.3",
-    "@types/lodash": "^4.14.68",
-    "@types/node": "^8.0.7",
-    "ava": "^0.20.0",
+    "@types/fs-extra": "4.0.2",
+    "@types/lodash": "^4.14.74",
+    "@types/node": "^8.0.28",
+    "ava": "^0.22.0",
     "coveralls": "^2.13.1",
-    "fs-extra": "^3.0.1",
+    "fs-extra": "^4.0.1",
     "lodash": "^4.17.4",
-    "nyc": "^11.0.3",
-    "tslint": "^5.4.3",
-    "typescript": "^2.4.1"
+    "nyc": "^11.2.1",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
   },
   "main": "./index.js",
   "types": "./index.d.ts",
