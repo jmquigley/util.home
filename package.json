@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "util.pkgwrap": "0.0.68",
-    "util.toolbox": "0.0.45"
+    "util.toolbox": "0.0.47"
   },
   "devDependencies": {
     "@types/fs-extra": "4.0.2",
@@ -34,7 +34,7 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
-    "all": "npm run lint && npm run clean && npm run build && npm test && npm run report",
+    "all": "yarn install && yarn run clean && yarn run lint && yarn run build && yarn test && yarn run report",
     "build": "pkgwrap --build",
     "clean": "pkgwrap --clean",
     "coverage": "pkgwrap --coverage",

@@ -11,14 +11,16 @@ This module was inspired by the [expand-home-dir](https://www.npmjs.com/package/
 
 ## Installation
 
+This module uses [yarn](https://yarnpkg.com/en/) to manage dependencies and run scripts for development.
+
 To install as an application dependency:
 ```
-$ npm install --save util.home
+$ yarn add --dev util.home
 ```
 
 To build the app and run all tests:
 ```
-$ npm run all
+$ yarn run all
 ```
 
 ## Usage
