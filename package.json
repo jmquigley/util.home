@@ -16,19 +16,20 @@
     "node": ">=7.x"
   },
   "dependencies": {
-    "util.toolbox": "0.0.55"
+    "util.toolbox": "0.0.56"
   },
   "devDependencies": {
     "@types/fs-extra": "4.0.5",
-    "@types/lodash": "^4.14.86",
-    "@types/node": "^8.0.53",
+    "@types/lodash": "^4.14.87",
+    "@types/node": "^8.0.54",
     "ava": "^0.24.0",
     "coveralls": "^3.0.0",
     "fs-extra": "^4.0.2",
     "lodash": "^4.17.4",
     "nyc": "^11.3.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "util.pkgwrap": "^0.0.88"
   },
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -38,7 +39,6 @@
     "clean": "pkgwrap --clean",
     "coverage": "pkgwrap --coverage",
     "lint": "pkgwrap --lint",
-    "preinstall": "yarn global add util.pkgwrap",
     "prepublishOnly": "yarn run all",
     "report": "pkgwrap --reporting",
     "test": "pkgwrap --testing --ava"
