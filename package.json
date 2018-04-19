@@ -16,20 +16,20 @@
     "node": ">=7.x"
   },
   "dependencies": {
-    "util.toolbox": "0.0.56"
+    "util.toolbox": "0.0.58"
   },
   "devDependencies": {
-    "@types/fs-extra": "4.0.5",
-    "@types/lodash": "^4.14.87",
-    "@types/node": "^8.0.54",
-    "ava": "^0.24.0",
+    "@types/fs-extra": "5.0.2",
+    "@types/lodash": "^4.14.107",
+    "@types/node": "^9.6.5",
+    "ava": "^0.25.0",
     "coveralls": "^3.0.0",
-    "fs-extra": "^4.0.2",
-    "lodash": "^4.17.4",
-    "nyc": "^11.3.0",
-    "tslint": "^5.8.0",
-    "typescript": "^2.6.2",
-    "util.pkgwrap": "^0.0.88"
+    "fs-extra": "^5.0.0",
+    "lodash": "^4.17.5",
+    "nyc": "^11.7.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1",
+    "util.pkgwrap": "^0.0.90"
   },
   "main": "./index.js",
   "types": "./index.d.ts",
