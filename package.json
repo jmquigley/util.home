@@ -3,6 +3,8 @@
   "version": "0.0.24",
   "author": "jmquigley <jmquigley@outlook.com>",
   "description": "Expands the ~ home directory in a path",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "private": false,
   "license": "MIT",
   "repository": {
@@ -16,31 +18,56 @@
     "node": ">=7.x"
   },
   "dependencies": {
-    "util.toolbox": "0.0.59"
+    "util.toolbox": "0.0.67"
   },
   "devDependencies": {
-    "@types/fs-extra": "5.0.2",
-    "@types/lodash": "^4.14.108",
-    "@types/node": "^9.6.6",
-    "ava": "^0.25.0",
-    "coveralls": "^3.0.0",
-    "fs-extra": "^5.0.0",
-    "lodash": "^4.17.10",
-    "nyc": "^11.7.1",
-    "tslint": "^5.9.1",
-    "typescript": "^2.8.3",
-    "util.pkgwrap": "^0.0.91"
+    "@types/fs-extra": "5.0.4",
+    "@types/lodash": "^4.14.119",
+    "@types/node": "^10.12.18",
+    "coveralls": "^3.0.2",
+    "fs-extra": "^7.0.1",
+    "jest": "^23.6.0",
+    "lodash": "^4.17.11",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
+    "typescript-babel-jest": "^1.0.5",
+    "util.pkgwrap": "^0.0.94"
   },
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "pkgwrap": {
+    "cleanup": [
+      "index.d.ts",
+      "index.js"
+    ]
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json"
+    ],
+    "notify": false,
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "transform": {
+      "^.+\\.ts?$": "typescript-babel-jest"
+    },
+    "verbose": false
+  },
   "scripts": {
-    "all": "yarn install && yarn run build && yarn test && yarn run report",
+    "all": "yarn install && yarn run build && yarn test",
     "build": "yarn run clean && yarn run lint && pkgwrap --build",
     "clean": "pkgwrap --clean",
     "coverage": "pkgwrap --coverage",
     "lint": "pkgwrap --lint",
     "prepublishOnly": "yarn run all",
-    "report": "pkgwrap --reporting",
-    "test": "pkgwrap --testing --ava"
+    "test": "pkgwrap --testing --jest"
   }
 }
