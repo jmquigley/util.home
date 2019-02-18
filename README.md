@@ -1,6 +1,6 @@
 # util.home
 
-> Expands the ~ home directory in a path Edit
+> Expands the ~ home directory in a path
 
 [![build](https://travis-ci.org/jmquigley/util.home.svg?branch=master)](https://travis-ci.org/jmquigley/util.home)
 [![analysis](https://img.shields.io/badge/analysis-tslint-9cf.svg)](https://palantir.github.io/tslint/)
