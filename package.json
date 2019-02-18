@@ -1,6 +1,6 @@
 {
 	"name": "util.home",
-	"version": "0.0.26",
+	"version": "0.0.27",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Expands the ~ home directory in a path",
 	"private": false,
