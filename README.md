@@ -2,11 +2,12 @@
 
 > Expands the ~ home directory in a path Edit
 
-[![Build Status](https://travis-ci.org/jmquigley/util.home.svg?branch=master)](https://travis-ci.org/jmquigley/util.home)
-[![tslint code style](https://img.shields.io/badge/code_style-TSlint-5ed9c7.svg)](https://palantir.github.io/tslint/)
-[![Test Runner](https://img.shields.io/badge/testing-jest-blue.svg)](https://facebook.github.io/jest/)
+[![build](https://travis-ci.org/jmquigley/util.home.svg?branch=master)](https://travis-ci.org/jmquigley/util.home)
+[![analysis](https://img.shields.io/badge/analysis-tslint-9cf.svg)](https://palantir.github.io/tslint/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![testing](https://img.shields.io/badge/testing-jest-blue.svg)](https://facebook.github.io/jest/)
 [![NPM](https://img.shields.io/npm/v/util.home.svg)](https://www.npmjs.com/package/util.home)
-[![Coverage Status](https://coveralls.io/repos/github/jmquigley/util.home/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.home?branch=master)
+[![coverage](https://coveralls.io/repos/github/jmquigley/util.home/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.home?branch=master)
 
 Path strings that use the `~`, `~/` or `~\` at the front of the string will be expanded to use the home directory of the user.  The home directory is dependent on the architecture.  For Linux/OSX the environment variable `HOME` is used.  On the Windows operating system it uses `USERPROFILE`.
 
