@@ -16,7 +16,7 @@
 		"node": ">=7.x"
 	},
 	"dependencies": {
-		"util.toolbox": "0.0.70"
+		"util.toolbox": "0.0.73"
 	},
 	"main": "./index.umd.min.js",
 	"module": "./index.es.min.js",
@@ -34,19 +34,19 @@
 		"@babel/runtime": "^7.3.4",
 		"@types/fs-extra": "5.0.5",
 		"@types/jest": "^24.0.9",
-		"@types/lodash": "^4.14.121",
-		"@types/node": "^11.9.6",
+		"@types/lodash": "^4.14.122",
+		"@types/node": "^11.10.5",
 		"babel-minify": "^0.5.0",
 		"babel-preset-minify": "^0.5.0",
 		"coveralls": "^3.0.3",
 		"fs-extra": "^7.0.1",
-		"jest": "^24.1.0",
+		"jest": "^24.3.0",
 		"lodash": "^4.17.11",
 		"prettier": "^1.16.4",
-		"tslint": "^5.13.0",
+		"tslint": "^5.13.1",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "^3.3.3333",
-		"util.pkgwrap": "^0.0.102"
+		"util.pkgwrap": "^0.0.104"
 	},
 	"scripts": {
 		"all": "yarn install && yarn build && yarn test",
