@@ -2,13 +2,12 @@
 
 > Expands the ~ home directory in a path
 
-[![build](https://circleci.com/gh/jmquigley/util.home/tree/master.svg?style=shield)](https://circleci.com/gh/jmquigley/util.home/tree/master)
-[![build](https://travis-ci.org/jmquigley/util.home.svg?branch=master)](https://travis-ci.org/jmquigley/util.home)
+[![build](https://github.com/jmquigley/util.home/workflows/build/badge.svg)](https://github.com/jmquigley/util.home/actions)
 [![analysis](https://img.shields.io/badge/analysis-tslint-9cf.svg)](https://palantir.github.io/tslint/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![testing](https://img.shields.io/badge/testing-jest-blue.svg)](https://facebook.github.io/jest/)
 [![NPM](https://img.shields.io/npm/v/util.home.svg)](https://www.npmjs.com/package/util.home)
-[![coverage](https://coveralls.io/repos/github/jmquigley/util.home/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.home?branch=master)
+
 
 Path strings that use the `~`, `~/` or `~\` at the front of the string will be expanded to use the home directory of the user.  The home directory is dependent on the architecture.  For Linux/OSX the environment variable `HOME` is used.  On the Windows operating system it uses `USERPROFILE`.
 

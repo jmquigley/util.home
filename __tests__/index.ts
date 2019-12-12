@@ -1,8 +1,7 @@
-"use strict";
-
 import * as _ from "lodash";
 import * as path from "path";
 
+const debug = require("debug")("util.home.test");
 const saveEnv = _.cloneDeep(process.env);
 
 beforeEach(() => {
@@ -17,194 +16,164 @@ test("Testing with bad directory source", () => {
 	expect(dir).toBe("");
 });
 
-test("Testing expansion of directory without tilde on Windows", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = true;
-	toolbox.isMac = false;
-	toolbox.isDarwin = false;
-	toolbox.isLinux = false;
+describe("windows tests", () => {
+	beforeEach(() => {
+		Object.defineProperty(process, "platform", {
+			value: "win"
+		});
+	});
 
-	process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+	test("Testing expansion of directory without tilde on Windows", () => {
+		const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand(`C:${path.sep}Users`);
+		process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("C:/Users");
+		const expand = require("../index").expandHomeDirectory;
+		const dir = expand(`C:${path.sep}Users`);
+
+		expect(dir).toBeTruthy();
+		expect(dir).toBe("C:/Users");
+	});
+
+	test("Testing expansion of single tilde home on Windows", () => {
+		const toolbox = require("util.toolbox-node");
+
+		process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+
+		const expand = require("../index").expandHomeDirectory;
+		const dir = expand("~");
+
+		expect(dir).toBeTruthy();
+		expect(dir).toBe("C:/Users/Home");
+	});
+
+	test("Testing expansion of simple home on Windows", () => {
+		const toolbox = require("util.toolbox-node");
+
+		process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+
+		const expand = require("../index").expandHomeDirectory;
+		const dir = expand("~/");
+
+		expect(dir).toBeTruthy();
+		expect(dir).toBe("C:/Users/Home");
+	});
+
+	test("Testing alternate expansion of simple home on Windows", () => {
+		const toolbox = require("util.toolbox-node");
+
+		process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+
+		const expand = require("../index").expandHomeDirectory;
+		const dir = expand("~\\");
+
+		expect(dir).toBeTruthy();
+		expect(dir).toBe("C:/Users/Home");
+	});
+
+	test("Testing the expansion of home directory on Windows", () => {
+		const toolbox = require("util.toolbox-node");
+
+		process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+
+		const expand = require("../index").expandHomeDirectory;
+		const dir = expand("~/test/expand");
+
+		expect(dir).toBeTruthy();
+		expect(dir).toBe("C:/Users/Home/test/expand");
+	});
+
+	test("Testing the expansion of home directory on Windows with Buffer", () => {
+		const toolbox = require("util.toolbox-node");
+
+		process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+
+		const expand = require("../index").expandHomeDirectory;
+		const dir = expand(new Buffer.from("~/test/expand"));
+
+		expect(dir).toBeTruthy();
+		expect(dir).toBe("C:/Users/Home/test/expand");
+	});
 });
 
-test("Testing expansion of single tilde home on Windows", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = true;
-	toolbox.isMac = false;
-	toolbox.isDarwin = false;
-	toolbox.isLinux = false;
+for (const testName of ["darwin", "linux"]) {
+	describe(`${testName} tests`, () => {
+		beforeEach(() => {
+			Object.defineProperty(process, "platform", {
+				value: testName
+			});
+		});
 
-	process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+		test(`Testing expansion of directory without tilde`, () => {
+			const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~");
+			process.env["HOME"] = `${path.sep}home${path.sep}user`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("C:/Users/Home");
-});
+			const expand = require("../index").expandHomeDirectory;
+			const dir = expand(`${path.sep}home`);
 
-test("Testing expansion of simple home on Windows", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = true;
-	toolbox.isMac = false;
-	toolbox.isDarwin = false;
-	toolbox.isLinux = false;
+			expect(dir).toBeTruthy();
+			expect(dir).toBe("/home");
+		});
 
-	process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+		test("Testing expansion of single tilde home", () => {
+			const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~/");
+			process.env["HOME"] = `${path.sep}home${path.sep}user`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("C:/Users/Home");
-});
+			const expand = require("../index").expandHomeDirectory;
+			const dir = expand("~");
 
-test("Testing alternate expansion of simple home on Windows", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = true;
-	toolbox.isMac = false;
-	toolbox.isDarwin = false;
-	toolbox.isLinux = false;
+			expect(dir).toBeTruthy();
+			expect(dir).toBe("/home/user");
+		});
 
-	process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+		test("Testing expansion of simple home", () => {
+			const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~\\");
+			process.env["HOME"] = `${path.sep}home${path.sep}user`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("C:/Users/Home");
-});
+			const expand = require("../index").expandHomeDirectory;
+			const dir = expand("~/");
 
-test("Testing the expansion of home directory on Windows", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = true;
-	toolbox.isMac = false;
-	toolbox.isDarwin = false;
-	toolbox.isLinux = false;
+			expect(dir).toBeTruthy();
+			expect(dir).toBe("/home/user");
+		});
 
-	process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+		test("Testing alternate expansion of simple home", () => {
+			const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~/test/expand");
+			process.env["HOME"] = `${path.sep}home${path.sep}user`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("C:/Users/Home/test/expand");
-});
+			const expand = require("../index").expandHomeDirectory;
+			const dir = expand("~\\");
 
-test("Testing the expansion of home directory on Windows with Buffer", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = true;
-	toolbox.isMac = false;
-	toolbox.isDarwin = false;
-	toolbox.isLinux = false;
+			expect(dir).toBeTruthy();
+			expect(dir).toBe("/home/user");
+		});
 
-	process.env["USERPROFILE"] = `C:${path.sep}Users${path.sep}Home`;
+		test("Testing the expansion of home directory", () => {
+			const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand(new Buffer.from("~/test/expand"));
+			process.env["HOME"] = `${path.sep}home${path.sep}user`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("C:/Users/Home/test/expand");
-});
+			const expand = require("../index").expandHomeDirectory;
+			const dir = expand("~/test/expand");
 
-test("Testing expansion of directory without tilde on Linux/Mac", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = false;
-	toolbox.isMac = true;
-	toolbox.isDarwin = true;
-	toolbox.isLinux = true;
+			expect(dir).toBeTruthy();
+			expect(dir).toBe("/home/user/test/expand");
+		});
 
-	process.env["HOME"] = `${path.sep}home${path.sep}user`;
+		test("Testing the expansion of home directory with Buffer", () => {
+			const toolbox = require("util.toolbox-node");
 
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand(`${path.sep}home`);
+			process.env["HOME"] = `${path.sep}home${path.sep}user`;
 
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("/home");
-});
+			const expand = require("../index").expandHomeDirectory;
+			const dir = expand(new Buffer.from("~/test/expand"));
 
-test("Testing expansion of single tilde home on Linux/Mac", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = false;
-	toolbox.isMac = true;
-	toolbox.isDarwin = true;
-	toolbox.isLinux = true;
-
-	process.env["HOME"] = `${path.sep}home${path.sep}user`;
-
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~");
-
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("/home/user");
-});
-
-test("Testing expansion of simple home on Linux/Mac", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = false;
-	toolbox.isMac = true;
-	toolbox.isDarwin = true;
-	toolbox.isLinux = true;
-
-	process.env["HOME"] = `${path.sep}home${path.sep}user`;
-
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~/");
-
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("/home/user");
-});
-
-test("Testing alternate expansion of simple home on Linux/Mac", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = false;
-	toolbox.isMac = true;
-	toolbox.isDarwin = true;
-	toolbox.isLinux = true;
-
-	process.env["HOME"] = `${path.sep}home${path.sep}user`;
-
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~\\");
-
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("/home/user");
-});
-
-test("Testing the expansion of home directory on Linux/Mac", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = false;
-	toolbox.isMac = true;
-	toolbox.isDarwin = true;
-	toolbox.isLinux = true;
-
-	process.env["HOME"] = `${path.sep}home${path.sep}user`;
-
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand("~/test/expand");
-
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("/home/user/test/expand");
-});
-
-test("Testing the expansion of home directory on Linux/Mac with Buffer", () => {
-	const toolbox = require("util.toolbox");
-	toolbox.isWin = false;
-	toolbox.isMac = true;
-	toolbox.isDarwin = true;
-	toolbox.isLinux = true;
-
-	process.env["HOME"] = `${path.sep}home${path.sep}user`;
-
-	const expand = require("../index").expandHomeDirectory;
-	const dir = expand(new Buffer.from("~/test/expand"));
-
-	expect(dir).toBeTruthy();
-	expect(dir).toBe("/home/user/test/expand");
-});
+			expect(dir).toBeTruthy();
+			expect(dir).toBe("/home/user/test/expand");
+		});
+	});
+}

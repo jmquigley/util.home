@@ -1,8 +1,8 @@
 import * as path from "path";
-import * as toolbox from "util.toolbox";
+import * as toolbox from "util.toolbox-node";
 
 let homedir = "HOME";
-if (toolbox.isWin) {
+if (toolbox.isWin()) {
 	homedir = "USERPROFILE";
 }
 export let home = process.env[homedir].trim().replace(/[\\\/]+/g, "/");
