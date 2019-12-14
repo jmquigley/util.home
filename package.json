@@ -1,6 +1,6 @@
 {
 	"name": "util.home",
-	"version": "0.0.32",
+	"version": "0.0.33",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Expands the ~ home directory in a path",
 	"private": false,
@@ -24,8 +24,8 @@
 		"index.d.ts"
 	],
 	"dependencies": {
-		"util.toolbox": "0.0.85",
-		"util.toolbox-node": "^0.0.7"
+		"util.toolbox": "0.0.86",
+		"util.toolbox-node": "^0.0.8"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.7.5",
